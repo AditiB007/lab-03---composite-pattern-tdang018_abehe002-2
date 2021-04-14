@@ -2,6 +2,7 @@
 
 #include "op.hpp"
 #include "add.h"
+#include "mult.h"
 #include "sub.h"
 
 int main() {
@@ -21,6 +22,9 @@ int main() {
     Base* add = new Add(four, two);
     std::cout << add->stringify() << " = " << add->evaluate() << std::endl;
     
+    Base* mult = new Mult(add, three);
+    std::cout << mult->stringify() << " = " << mult->evaluate() << std::endl;
+
     Base* sub = new Sub(seven, two);
     std::cout << sub->stringify() << " = " << sub->evaluate() << std::endl;
 
