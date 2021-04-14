@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "op.hpp"
+#include "add.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -15,5 +16,9 @@ int main() {
     //Base* minus = new Sub(add, two);
 
     std::cout << three->stringify() << " = " << three->evaluate() << std::endl;
+    
+    Base* add = new Add(four, two);
+    std::cout << add->stringify() << " = " << add->evaluate() << std::endl;
+
     return 0;
 }
