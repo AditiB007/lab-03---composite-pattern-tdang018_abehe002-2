@@ -2,6 +2,7 @@
 
 #include "op.hpp"
 #include "add.h"
+#include "mult.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -19,6 +20,9 @@ int main() {
     
     Base* add = new Add(four, two);
     std::cout << add->stringify() << " = " << add->evaluate() << std::endl;
+    
+    Base* mult = new Mult(add, three);
+    std::cout << mult->stringify() << " = " << mult->evaluate() << std::endl;
 
     return 0;
 }
