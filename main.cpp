@@ -3,6 +3,7 @@
 #include "op.hpp"
 #include "add.h"
 #include "mult.h"
+#include "pow.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -23,6 +24,9 @@ int main() {
     
     Base* mult = new Mult(add, three);
     std::cout << mult->stringify() << " = " << mult->evaluate() << std::endl;
+
+    Base* pow = new Pow(two, three);
+    std::cout << pow->stringify() << " = " << pow->evaluate() << std::endl;
 
     return 0;
 }
