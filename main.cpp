@@ -6,6 +6,7 @@
 #include "pow.h"
 #include "sub.h"
 #include "div.h"
+#include "rand.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -35,6 +36,9 @@ int main() {
 
     Base* div = new Div(seven, three);
     std::cout << div->stringify() << " = " << div->evaluate() << std::endl;
+
+    Base* rand = new Rand();
+    std::cout << rand->stringify() << " = " << rand->evaluate() << std::endl;
 
     return 0;
 }
