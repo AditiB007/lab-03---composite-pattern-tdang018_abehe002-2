@@ -4,6 +4,7 @@
 #include "add.h"
 #include "mult.h"
 #include "pow.h"
+#include "sub.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -27,6 +28,9 @@ int main() {
 
     Base* pow = new Pow(two, three);
     std::cout << pow->stringify() << " = " << pow->evaluate() << std::endl;
+
+    Base* sub = new Sub(seven, two);
+    std::cout << sub->stringify() << " = " << sub->evaluate() << std::endl;
 
     return 0;
 }
