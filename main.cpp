@@ -5,6 +5,7 @@
 #include "mult.h"
 #include "pow.h"
 #include "sub.h"
+#include "div.h"
 
 int main() {
     // This is a very basic main, and being able to correctly execute this main
@@ -31,6 +32,9 @@ int main() {
 
     Base* sub = new Sub(seven, two);
     std::cout << sub->stringify() << " = " << sub->evaluate() << std::endl;
+
+    Base* div = new Div(seven, three);
+    std::cout << div->stringify() << " = " << div->evaluate() << std::endl;
 
     return 0;
 }
