@@ -21,8 +21,14 @@ class Pow: public Base {
 
     double evaluate() {
       double result = 1;
-      for(int i = 0; i < b2->evaluate(); i++) {
-        result *= b1->evaluate();
+      double num1 = b1->evaluate();
+      double num2 = b2->evaluate();
+      if(num2 < 0) {
+        num1 = 1/(num1);
+        num2 = (num2)/-1;
+      }
+      for(int i = 0; i < num2; i++) {
+        result *= num1;  
       }
       return result;
     }
