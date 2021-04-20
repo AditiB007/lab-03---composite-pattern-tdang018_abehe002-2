@@ -31,7 +31,7 @@ TEST(PowTest, Negatives) {
   Base* negative1 = new Op(-3);
   Base* negative2 = new Op(-2);
   Pow* pow = new Pow(negative1, negative2);
-  EXPECT_DOUBLE_EQ(pow->evaluate(), .111111);
+  EXPECT_DOUBLE_EQ(pow->evaluate(), 0.111111);
   EXPECT_EQ(pow->stringify(), "(-3.000000 ** -2.000000)");
 }
 
@@ -61,9 +61,9 @@ TEST(PowTest, Add_Mock) {
 TEST(PowTest, Rand_Mock) {
   Base* mock = new Rand_Mock(); // 123
   Base* number = new Op(4);
-  Base* pow = new Pow(mock, number); // (123 ** 2)
-  EXPECT_DOUBLE_EQ(pow->evaluate(), 15129.000000);
-  EXPECT_EQ(pow->stringify(), "(123.000000 ** 2.000000)");
+  Base* pow = new Pow(mock, number); // (123 ** 4)
+  EXPECT_DOUBLE_EQ(pow->evaluate(), 228886641);
+  EXPECT_EQ(pow->stringify(), "(123.000000 ** 4.000000)");
 }
 
 TEST(PowTest, Mult_Mock) {
@@ -85,9 +85,9 @@ TEST(PowTest, Div_Mock) {
 TEST(PowTest, Sub_Mock) {
   Base* mock = new Sub_Mock(); // 3 - 2
   Base* number = new Op(4);
-  Base* pow = new Pow(mock, number); // ((3 - 2) - 4)
-  EXPECT_DOUBLE_EQ(pow->evaluate(), -3.000000);
-  EXPECT_EQ(pow->stringify(), "((3.000000 - 2.000000) - 4.000000)");
+  Base* pow = new Pow(mock, number); // ((3 - 2) ** 4)
+  EXPECT_DOUBLE_EQ(pow->evaluate(), 1.000000);
+  EXPECT_EQ(pow->stringify(), "((3.000000 - 2.000000) ** 4.000000)");
 }
 
 #endif // __POW_TEST_H__
