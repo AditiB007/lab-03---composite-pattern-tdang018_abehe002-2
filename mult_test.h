@@ -53,9 +53,9 @@ TEST(MultTest, Op_Mock) {
 TEST(MultTest, Add_Mock) {
   Base* mock = new Add_Mock(); // 3 + 2
   Base* number = new Op(4);
-  Base* mult = new Mult(mock, number); // (3 * 2) + 4
-  EXPECT_DOUBLE_EQ(mult->evaluate(), 10.000000);
-  EXPECT_EQ(mult->stringify(), "((3.000000 * 2.000000) - 4.000000)");
+  Base* mult = new Mult(mock, number); // (3 + 2) * 4
+  EXPECT_DOUBLE_EQ(mult->evaluate(), 20.000000);
+  EXPECT_EQ(mult->stringify(), "((3.000000 + 2.000000) * 4.000000)");
 }
 
 TEST(MultTest, Rand_Mock) {
@@ -67,7 +67,7 @@ TEST(MultTest, Rand_Mock) {
 }
 
 TEST(MultTest, Sub_Mock) {
-  Base* mock = new Mult_Mock(); // 3 - 2
+  Base* mock = new Sub_Mock(); // 3 - 2
   Base* number = new Op(4);
   Base* mult = new Mult(mock, number); // ((3 - 2) * 4)
   EXPECT_DOUBLE_EQ(mult->evaluate(), 4.000000);

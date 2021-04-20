@@ -16,29 +16,10 @@ int main() {
     Base* seven = new Op(7);
     Base* four = new Op(4);
     Base* two = new Op(2);
-    //Base* mult = new Mult(seven, four);
-    //Base* add = new Add(three, mult);
-    //Base* minus = new Sub(add, two);
+    Base* mult = new Mult(seven, four);
+    Base* add = new Add(three, mult);
+    Base* minus = new Sub(add, two);
 
-    std::cout << three->stringify() << " = " << three->evaluate() << std::endl;
-    
-    Base* add = new Add(four, two);
-    std::cout << add->stringify() << " = " << add->evaluate() << std::endl;
-    
-    Base* mult = new Mult(add, three);
-    std::cout << mult->stringify() << " = " << mult->evaluate() << std::endl;
-
-    Base* pow = new Pow(two, three);
-    std::cout << pow->stringify() << " = " << pow->evaluate() << std::endl;
-
-    Base* sub = new Sub(seven, two);
-    std::cout << sub->stringify() << " = " << sub->evaluate() << std::endl;
-
-    Base* div = new Div(seven, three);
-    std::cout << div->stringify() << " = " << div->evaluate() << std::endl;
-
-    Base* rand = new Rand();
-    std::cout << rand->stringify() << " = " << rand->evaluate() << std::endl;
-
+    std::cout << minus->stringify() << " = " << minus->evaluate() << std::endl;
     return 0;
 }
