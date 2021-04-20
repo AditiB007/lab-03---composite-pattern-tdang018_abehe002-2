@@ -9,12 +9,12 @@ class Div_Mock: public Base {
     ~Div_Mock() {}
 
     double evaluate() { // parameters: 3, 2
-      return 1.5;
+      return 1.500000;
     }
 
     std::string stringify() {
-      return "(3 / 2)";
+      return "(3.000000 / 2.000000)";
     }
-}
+};
 
 #endif // __DIV_MOCK_H__

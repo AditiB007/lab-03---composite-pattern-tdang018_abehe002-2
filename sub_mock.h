@@ -9,11 +9,11 @@ class Sub_Mock: public Base {
     ~Sub_Mock() {}
 
     double evaluate() { // parameters: 3, 2
-      return 1;
+      return 1.000000;
     }
 
     std::string stringify() {
-      return "(3 - 2)";
+      return "(3.000000 - 2.000000)";
     }
 }
 
