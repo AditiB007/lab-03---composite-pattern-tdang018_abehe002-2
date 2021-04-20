@@ -21,6 +21,7 @@ class Div: public Base {
 
     double evaluate() {
       if(b2->evaluate() != 0){ return b1->evaluate() / b2->evaluate(); }
+      else { throw std::domain_error("divide by zero"); }
     }
 
     std::string stringify() {

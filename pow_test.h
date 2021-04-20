@@ -31,7 +31,7 @@ TEST(PowTest, Negatives) {
   Base* negative1 = new Op(-3);
   Base* negative2 = new Op(-2);
   Pow* pow = new Pow(negative1, negative2);
-  EXPECT_DOUBLE_EQ(pow->evaluate(), 0.111111);
+  EXPECT_DOUBLE_EQ(pow->evaluate(), 0.1111111111111111);
   EXPECT_EQ(pow->stringify(), "(-3.000000 ** -2.000000)");
 }
 
