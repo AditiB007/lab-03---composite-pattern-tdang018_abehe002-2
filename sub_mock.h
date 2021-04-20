@@ -15,6 +15,6 @@ class Sub_Mock: public Base {
     std::string stringify() {
       return "(3.000000 - 2.000000)";
     }
-}
+};
 
 #endif // __SUB_MOCK_H__
