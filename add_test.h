@@ -4,6 +4,12 @@
 #include "gtest/gtest.h"
 
 #include "add.h"
+#include "op_mock.h"
+#include "rand_mock.h"
+#include "sub_mock.h"
+#include "mult_mock.h"
+#include "div_mock.h"
+#include "pow_mock.h"
 
 TEST(AddTest, ThreePlusTwo) {
   Base* three = new Op(3);
@@ -35,6 +41,53 @@ TEST(AddTest, Zero) {
   Add* add = new Add(number, zero);
   EXPECT_DOUBLE_EQ(add->evaluate(), 69.000000);
   EXPECT_EQ(add->stringify(), "(69.000000 + 0.000000)");
+}
+
+TEST(AddTest, Op_Mock) {
+  Base* mock = new Op_Mock(); // 3
+  Base* add = new Add(mock, mock);
+  EXPECT_DOUBLE_EQ(add->evaluate(), 6.000000);
+  EXPECT_EQ(add->stringify(), "(3.000000 + 3.000000)");
+}
+
+TEST(AddTest, Sub_Mock) {
+  Base* mock = new Sub_Mock(); // 3 - 2
+  Base* number = new Op(4);
+  Base* add = new Add(mock, number); // (3 - 2) + 4
+  EXPECT_DOUBLE_EQ(add->evaluate(), 5.000000);
+  EXPECT_EQ(add->stringify(), "((3.000000 - 2.000000) + 4.000000)");
+}
+
+TEST(AddTest, Rand_Mock) {
+  Base* mock = new Rand_Mock(); // 123
+  Base* number = new Op(4);
+  Base* add = new Add(mock, number); // (123 + 4)
+  EXPECT_DOUBLE_EQ(add->evaluate(), 127.000000);
+  EXPECT_EQ(add->stringify(), "(123.000000 + 4.000000)");
+}
+
+TEST(AddTest, Mult_Mock) {
+  Base* mock = new Mult_Mock(); // 3 * 2
+  Base* number = new Op(4);
+  Base* add = new Add(mock, number); // ((3 * 2) + 4)
+  EXPECT_DOUBLE_EQ(add->evaluate(), 10.000000);
+  EXPECT_EQ(add->stringify(), "((3.000000 * 2.000000) + 4.000000)");
+}
+
+TEST(AddTest, Div_Mock) {
+  Base* mock = new Div_Mock(); // 3 / 2
+  Base* number = new Op(4);
+  Base* add = new Add(mock, number); // ((3 / 2) + 4)
+  EXPECT_DOUBLE_EQ(add->evaluate(), 5.500000);
+  EXPECT_EQ(add->stringify(), "((3.000000 / 2.000000) + 4.000000)");
+}
+
+TEST(PowTest, Pow_Mock) {
+  Base* mock = new Pow_Mock(); // 3 ** 2
+  Base* number = new Op(4);
+  Base* add = new Add(mock, number); // ((3 ** 2) + 4)
+  EXPECT_DOUBLE_EQ(add->evaluate(), 13.000000);
+  EXPECT_EQ(add->stringify(), "((3.000000 ** 2.000000) + 4.000000)");
 }
  
 #endif // __ADD_TEST_H__
