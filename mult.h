@@ -24,7 +24,7 @@ class Mult: public Base {
     }
 
     std::string stringify() {
-      return "(" + std::to_string(b1->stringify()) + " * " + std::to_string(b2->stringify()) + ")";
+      return "(" + b1->stringify() + " * " + b2->stringify() + ")";
     }
 };
 
