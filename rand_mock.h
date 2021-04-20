@@ -9,12 +9,12 @@ class Rand_Mock: public Base {
     ~Rand_Mock() {}
 
     double evaluate() {
-      return 123;
+      return 123.000000;
     }
 
     std::string stringify() {
-      return "123";
+      return "123.000000";
     }
-}
+};
 
 #endif // __RAND_MOCK_H__

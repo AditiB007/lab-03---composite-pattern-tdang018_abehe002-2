@@ -5,7 +5,11 @@
 
 #include "sub.h"
 #include "op_mock.h"
+#include "rand_mock.h"
 #include "add_mock.h"
+#include "mult_mock.h"
+#include "div_mock.h"
+#include "pow_mock.h"
 
 TEST(SubTest, ThreeMinusTwo) {
   Base* three = new Op(3);
@@ -54,6 +58,36 @@ TEST(SubTest, Add_Mock) {
   EXPECT_EQ(minus->stringify(), "((3.000000 + 2.000000) - 4.000000)");
 }
 
+TEST(SubTest, Rand_Mock) {
+  Base* mock = new Rand_Mock(); // 123
+  Base* number = new Op(4);
+  Sub* minus = new Sub(mock, number); // (123 - 4)
+  EXPECT_DOUBLE_EQ(minus->evaluate(), 119.000000);
+  EXPECT_EQ(minus->stringify(), "(123.000000 - 4.000000)");
+}
 
+TEST(SubTest, Mult_Mock) {
+  Base* mock = new Mult_Mock(); // 3 * 2
+  Base* number = new Op(4);
+  Base* minus = new Sub(mock, number); // ((3 * 2) - 4)
+  EXPECT_DOUBLE_EQ(minus->evaluate(), 2.000000);
+  EXPECT_EQ(minus->stringify(), "((3.000000 * 2.000000) - 4.000000)");
+}
+
+TEST(SubTest, Div_Mock) {
+  Base* mock = new Div_Mock(); // 3 / 2
+  Base* number = new Op(4);
+  Sub* minus = new Sub(mock, number); // ((3 / 2) - 4)
+  EXPECT_DOUBLE_EQ(minus->evaluate(), -2.500000);
+  EXPECT_EQ(minus->stringify(), "((3.000000 / 2.000000) - 4.000000)");
+}
+
+TEST(SubTest, Pow_Mock) {
+  Base* mock = new Pow_Mock(); // 3 ** 2
+  Base* number = new Op(4);
+  Base* minus = new Sub(mock, number); // ((3 ** 2) - 4)
+  EXPECT_DOUBLE_EQ(minus->evaluate(), 5.000000);
+  EXPECT_EQ(minus->stringify(), "((3.000000 ** 2.000000) - 4.000000)");
+}
 
 #endif // __SUB_TEST_H__
