@@ -28,7 +28,7 @@ class Pow: public Base {
     }
 
     std::string stringify() {
-      return "(" + std::to_string(b1->evaluate()) + " ** " + std::to_string(b2->evaluate()) + ")";
+      return "(" + b1->stringify() + " ** " + b2->stringify() + ")";
     }
 };
 
