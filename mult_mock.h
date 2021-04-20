@@ -1,5 +1,5 @@
 #ifndef __MULT_MOCK_H__
-#define _MULT_MOCK_H__
+#define __MULT_MOCK_H__
 
 #include <string>
 
