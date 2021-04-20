@@ -24,7 +24,7 @@ class Sub: public Base {
     }
 
     std::string stringify() {
-      return "(" + std::to_string(b1->evaluate()) + " - " + std::to_string(b2->evaluate()) + ")";
+      return "(" + std::to_string(b1->stringify()) + " - " + std::to_string(b2->srtingify()) + ")";
     }
 };
 
